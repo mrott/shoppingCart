@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //  log documents path
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print("documents path " + paths[0].absoluteString)
+        
+        let products1Import = CoreDataLocalDataImport()
+        products1Import.importFile(plistFilename: "products1")
+        
         return true
     }
 

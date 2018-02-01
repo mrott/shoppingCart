@@ -17,6 +17,9 @@
 		84D9504C20231E5C00A101D3 /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9504B20231E5C00A101D3 /* CurrenciesViewController.swift */; };
 		84D9504E2023242E00A101D3 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9504D2023242E00A101D3 /* ProductTableViewCell.swift */; };
 		84D950522023292400A101D3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D950512023292400A101D3 /* CoreDataManager.swift */; };
+		84D950542023331E00A101D3 /* CoreDataLocalDataImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D950532023331E00A101D3 /* CoreDataLocalDataImport.swift */; };
+		84D950562023334700A101D3 /* products1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D950552023334700A101D3 /* products1.plist */; };
+		84D9505820234DDF00A101D3 /* Product+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9505720234DDF00A101D3 /* Product+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		84D9504B20231E5C00A101D3 /* CurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewController.swift; sourceTree = "<group>"; };
 		84D9504D2023242E00A101D3 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		84D950512023292400A101D3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		84D950532023331E00A101D3 /* CoreDataLocalDataImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLocalDataImport.swift; sourceTree = "<group>"; };
+		84D950552023334700A101D3 /* products1.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = products1.plist; sourceTree = "<group>"; };
+		84D9505720234DDF00A101D3 /* Product+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				84D950512023292400A101D3 /* CoreDataManager.swift */,
+				84D950532023331E00A101D3 /* CoreDataLocalDataImport.swift */,
+				84D950552023334700A101D3 /* products1.plist */,
+				84D9505720234DDF00A101D3 /* Product+Extension.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -164,6 +173,7 @@
 			files = (
 				84D9503F20231CA600A101D3 /* LaunchScreen.storyboard in Resources */,
 				84D9503C20231CA600A101D3 /* Assets.xcassets in Resources */,
+				84D950562023334700A101D3 /* products1.plist in Resources */,
 				84D9503720231CA600A101D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,8 +188,10 @@
 				84D9504C20231E5C00A101D3 /* CurrenciesViewController.swift in Sources */,
 				84D9504A20231E4D00A101D3 /* CartViewController.swift in Sources */,
 				84D9504820231E3D00A101D3 /* ProductsViewController.swift in Sources */,
+				84D950542023331E00A101D3 /* CoreDataLocalDataImport.swift in Sources */,
 				84D9503A20231CA600A101D3 /* ShoppingCart.xcdatamodeld in Sources */,
 				84D9503220231CA600A101D3 /* AppDelegate.swift in Sources */,
+				84D9505820234DDF00A101D3 /* Product+Extension.swift in Sources */,
 				84D950522023292400A101D3 /* CoreDataManager.swift in Sources */,
 				84D9504E2023242E00A101D3 /* ProductTableViewCell.swift in Sources */,
 			);
