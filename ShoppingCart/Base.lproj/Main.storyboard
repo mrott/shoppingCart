@@ -72,9 +72,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageView" destination="5zF-SW-hA4" id="enU-i7-3lQ"/>
                                             <outlet property="nameLabel" destination="80K-Ce-URj" id="8D6-z4-OYx"/>
                                             <outlet property="priceLabel" destination="Sz4-Y3-sez" id="4EH-CB-6Wl"/>
+                                            <outlet property="productImageView" destination="5zF-SW-hA4" id="iuP-ht-AtP"/>
                                             <outlet property="unitTypeLabel" destination="Gnx-qM-vQl" id="MKF-eL-431"/>
                                         </connections>
                                     </tableViewCell>
