@@ -22,16 +22,22 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.delegate = self
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         setupFetchRequestController()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateCartButton()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -55,7 +61,13 @@ class ProductsViewController: UIViewController {
         }
     }
     
-    @IBAction func cartPressed(_ sender: Any) {
+    fileprivate func updateCartButton() {
+        let title = String(format: "Cart - %d items", SaleManager.shared.currentSale?.saleItems?.count ?? 0)
+        let button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(cartPressed))
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc fileprivate func cartPressed() {
         performSegue(withIdentifier: ProductsViewControllerConstants.cartSegue, sender: self)
     }
 }
@@ -87,6 +99,15 @@ extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let product = fetchedResultsController?.object(at: indexPath) {
             SaleManager.shared.addProduct(product: product)
+            updateCartButton()
+        }
+    }
+}
+
+extension ProductsViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is ProductsViewController {
+            viewWillAppear(animated)
         }
     }
 }

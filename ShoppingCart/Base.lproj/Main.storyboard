@@ -106,13 +106,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Products" id="mqF-24-RGz">
-                        <barButtonItem key="rightBarButtonItem" title="Cart" id="XqS-U3-Ewb">
-                            <connections>
-                                <action selector="cartPressed:" destination="BYZ-38-t0r" id="vSh-dZ-qT3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Products" id="mqF-24-RGz"/>
                     <connections>
                         <outlet property="tableView" destination="Sbt-Xd-Aae" id="RCI-da-RZp"/>
                         <segue destination="8Y3-iT-LgA" kind="show" identifier="cart" id="Q7U-uK-Iso"/>
