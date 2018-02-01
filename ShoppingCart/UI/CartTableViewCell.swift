@@ -47,10 +47,10 @@ class CartTableViewCell: UITableViewCell {
         var price = (saleItem.product?.price ?? 0) * Float(saleItem.quantity)
         if let currency = currency {
             price = price * currency.value
-            priceLabel.text = String(format: "%.2f", price) + currency.name
+            priceLabel.text = String(format: "%.2f", price) + " " + currency.name
         }
         else {
-            priceLabel.text = String(format: "%.2f", price) + "USD"
+            priceLabel.text = String(format: "%.2f", price) + " USD"
         }
         quantityLabel.text = "Quantity: " + String(saleItem.quantity )
     }
