@@ -28,4 +28,10 @@ class ProductTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func configure(product: Product) {
+        nameLabel.text = product.name
+        unitTypeLabel.text = product.unitType
+        priceLabel.text = String(product.price) + "$"
+    }
+    
 }

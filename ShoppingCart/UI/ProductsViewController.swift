@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 fileprivate struct ProductsViewControllerConstants {
     
@@ -16,10 +17,13 @@ class ProductsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    fileprivate var fetchedResultsController: NSFetchedResultsController<Product>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.rowHeight = UITableViewAutomaticDimension
+        setupFetchRequestController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,16 +42,29 @@ class ProductsViewController: UIViewController {
     }
     */
 
+    fileprivate func setupFetchRequestController() {
+        let context = CoreDataManager.shared.managedObjectContext
+        let fetchRequest = NSFetchRequest<Product>(entityName: Product.entityName)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try controller.performFetch()
+            fetchedResultsController = controller
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+    }
+    
 }
 
 extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultsController?.sections?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return fetchedResultsController?.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,12 +74,16 @@ extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.identifier, for: indexPath)
         
-        
+        if let product = fetchedResultsController?.object(at: indexPath), let productCell = cell as? ProductTableViewCell {
+            productCell.configure(product: product)
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let product = fetchedResultsController?.object(at: indexPath) {
+            
+        }
     }
 }

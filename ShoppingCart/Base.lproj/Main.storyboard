@@ -18,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sbt-Xd-Aae">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sbt-Xd-Aae">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductTableViewCell" rowHeight="76" id="51d-w2-yKw" customClass="ProductTableViewCell" customModule="ShoppingCart" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProductTableViewCell" rowHeight="76" id="51d-w2-yKw" customClass="ProductTableViewCell" customModule="ShoppingCart" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="51d-w2-yKw" id="gkq-Tc-NgK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80K-Ce-URj">
@@ -59,12 +59,22 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSj-4y-7Uj">
+                                                    <rect key="frame" x="0.0" y="75" width="375" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="9qm-Pt-tbF"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="eSj-4y-7Uj" secondAttribute="bottom" id="5rD-8E-O2h"/>
                                                 <constraint firstAttribute="bottom" secondItem="y3h-2I-Css" secondAttribute="bottom" constant="8" id="7fX-Ty-9yb"/>
                                                 <constraint firstItem="5zF-SW-hA4" firstAttribute="top" secondItem="gkq-Tc-NgK" secondAttribute="top" constant="8" id="LSg-j9-JPa"/>
+                                                <constraint firstAttribute="trailing" secondItem="eSj-4y-7Uj" secondAttribute="trailing" id="RDV-Fx-dzK"/>
                                                 <constraint firstItem="80K-Ce-URj" firstAttribute="top" secondItem="gkq-Tc-NgK" secondAttribute="top" constant="8" id="SrP-Ld-F0W"/>
                                                 <constraint firstItem="80K-Ce-URj" firstAttribute="leading" secondItem="5zF-SW-hA4" secondAttribute="trailing" constant="8" id="Wz6-qR-uhE"/>
+                                                <constraint firstItem="eSj-4y-7Uj" firstAttribute="leading" secondItem="gkq-Tc-NgK" secondAttribute="leading" id="j3L-LB-qei"/>
                                                 <constraint firstAttribute="trailing" secondItem="y3h-2I-Css" secondAttribute="trailing" constant="8" id="jLW-so-noN"/>
                                                 <constraint firstAttribute="trailing" secondItem="80K-Ce-URj" secondAttribute="trailing" constant="8" id="l5t-5F-fdp"/>
                                                 <constraint firstAttribute="bottom" secondItem="5zF-SW-hA4" secondAttribute="bottom" constant="8" id="mn9-oR-9wt"/>
@@ -102,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="134"/>
+            <point key="canvasLocation" x="548" y="133.5832083958021"/>
         </scene>
         <!--Currencies View Controller-->
         <scene sceneID="lxv-m9-cto">

@@ -11,8 +11,10 @@ import CoreData
 
 extension Product {
     
+    static let entityName = "Product"
+    
     static func newObject() -> Product? {
-        let object = NSEntityDescription.insertNewObject(forEntityName: "Product",
+        let object = NSEntityDescription.insertNewObject(forEntityName: entityName,
                                                          into: CoreDataManager.shared.managedObjectContext)
         return object as? Product
     }
