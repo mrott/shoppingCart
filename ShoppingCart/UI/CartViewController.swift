@@ -63,14 +63,13 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func currenciesPressed(_ sender: Any) {
-        
+        performSegue(withIdentifier: CartViewControllerConstants.currenciesSegue, sender: self)
     }
     
     @IBAction func finishSalePressed(_ sender: Any) {
         
     }
     
-
 }
 
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {

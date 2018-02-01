@@ -13,7 +13,9 @@ class CurrenciesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        NetworkRequest.getCurrencies { (completed, currencies) in
+            print(currencies)
+        }
     }
 
     override func didReceiveMemoryWarning() {

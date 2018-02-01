@@ -24,6 +24,10 @@
 		84D9505C202358B700A101D3 /* SaleItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9505B202358B700A101D3 /* SaleItem+Extension.swift */; };
 		84D9505E202359E000A101D3 /* Sale+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9505D202359E000A101D3 /* Sale+Extension.swift */; };
 		84D9506020235B0A00A101D3 /* SaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9505F20235B0A00A101D3 /* SaleManager.swift */; };
+		84D950632023696A00A101D3 /* NetworkRequest+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D950622023696A00A101D3 /* NetworkRequest+Currency.swift */; };
+		84D950652023699500A101D3 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D950642023699500A101D3 /* NetworkConfiguration.swift */; };
+		84D9506720236A1000A101D3 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9506620236A1000A101D3 /* NetworkRequest.swift */; };
+		84D9506A20236C7A00A101D3 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9506920236C7A00A101D3 /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		84D9505B202358B700A101D3 /* SaleItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaleItem+Extension.swift"; sourceTree = "<group>"; };
 		84D9505D202359E000A101D3 /* Sale+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sale+Extension.swift"; sourceTree = "<group>"; };
 		84D9505F20235B0A00A101D3 /* SaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleManager.swift; sourceTree = "<group>"; };
+		84D950622023696A00A101D3 /* NetworkRequest+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkRequest+Currency.swift"; sourceTree = "<group>"; };
+		84D950642023699500A101D3 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		84D9506620236A1000A101D3 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		84D9506920236C7A00A101D3 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,8 @@
 		84D9504F202328B800A101D3 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				84D9506820236C7000A101D3 /* Model */,
+				84D950612023695400A101D3 /* Network */,
 				84D95050202328B800A101D3 /* CoreData */,
 				84D9505F20235B0A00A101D3 /* SaleManager.swift */,
 			);
@@ -122,6 +132,24 @@
 				84D9505D202359E000A101D3 /* Sale+Extension.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		84D950612023695400A101D3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				84D950622023696A00A101D3 /* NetworkRequest+Currency.swift */,
+				84D950642023699500A101D3 /* NetworkConfiguration.swift */,
+				84D9506620236A1000A101D3 /* NetworkRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		84D9506820236C7000A101D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84D9506920236C7A00A101D3 /* Currency.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +227,7 @@
 			files = (
 				84D9505E202359E000A101D3 /* Sale+Extension.swift in Sources */,
 				84D9506020235B0A00A101D3 /* SaleManager.swift in Sources */,
+				84D9506720236A1000A101D3 /* NetworkRequest.swift in Sources */,
 				84D9504C20231E5C00A101D3 /* CurrenciesViewController.swift in Sources */,
 				84D9504A20231E4D00A101D3 /* CartViewController.swift in Sources */,
 				84D9504820231E3D00A101D3 /* ProductsViewController.swift in Sources */,
@@ -206,7 +235,10 @@
 				84D9503A20231CA600A101D3 /* ShoppingCart.xcdatamodeld in Sources */,
 				84D9503220231CA600A101D3 /* AppDelegate.swift in Sources */,
 				84D9505820234DDF00A101D3 /* Product+Extension.swift in Sources */,
+				84D950632023696A00A101D3 /* NetworkRequest+Currency.swift in Sources */,
 				84D9505C202358B700A101D3 /* SaleItem+Extension.swift in Sources */,
+				84D950652023699500A101D3 /* NetworkConfiguration.swift in Sources */,
+				84D9506A20236C7A00A101D3 /* Currency.swift in Sources */,
 				84D9505A2023562000A101D3 /* CartTableViewCell.swift in Sources */,
 				84D950522023292400A101D3 /* CoreDataManager.swift in Sources */,
 				84D9504E2023242E00A101D3 /* ProductTableViewCell.swift in Sources */,
