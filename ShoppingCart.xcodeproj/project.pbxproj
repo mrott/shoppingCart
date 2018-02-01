@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		84D9503220231CA600A101D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9503120231CA600A101D3 /* AppDelegate.swift */; };
-		84D9503420231CA600A101D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9503320231CA600A101D3 /* ViewController.swift */; };
 		84D9503720231CA600A101D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9503520231CA600A101D3 /* Main.storyboard */; };
 		84D9503A20231CA600A101D3 /* ShoppingCart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84D9503820231CA600A101D3 /* ShoppingCart.xcdatamodeld */; };
 		84D9503C20231CA600A101D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D9503B20231CA600A101D3 /* Assets.xcassets */; };
 		84D9503F20231CA600A101D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9503D20231CA600A101D3 /* LaunchScreen.storyboard */; };
+		84D9504820231E3D00A101D3 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9504720231E3D00A101D3 /* ProductsViewController.swift */; };
+		84D9504A20231E4D00A101D3 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9504920231E4D00A101D3 /* CartViewController.swift */; };
+		84D9504C20231E5C00A101D3 /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9504B20231E5C00A101D3 /* CurrenciesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		84D9502E20231CA600A101D3 /* ShoppingCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D9503120231CA600A101D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84D9503320231CA600A101D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84D9503620231CA600A101D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84D9503920231CA600A101D3 /* ShoppingCart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingCart.xcdatamodel; sourceTree = "<group>"; };
 		84D9503B20231CA600A101D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D9503E20231CA600A101D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D9504020231CA600A101D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D9504720231E3D00A101D3 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		84D9504920231E4D00A101D3 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		84D9504B20231E5C00A101D3 /* CurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,8 @@
 		84D9503020231CA600A101D3 /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
+				84D9504620231DF100A101D3 /* UI */,
 				84D9503120231CA600A101D3 /* AppDelegate.swift */,
-				84D9503320231CA600A101D3 /* ViewController.swift */,
 				84D9503520231CA600A101D3 /* Main.storyboard */,
 				84D9503B20231CA600A101D3 /* Assets.xcassets */,
 				84D9503D20231CA600A101D3 /* LaunchScreen.storyboard */,
@@ -65,6 +69,16 @@
 				84D9503820231CA600A101D3 /* ShoppingCart.xcdatamodeld */,
 			);
 			path = ShoppingCart;
+			sourceTree = "<group>";
+		};
+		84D9504620231DF100A101D3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				84D9504720231E3D00A101D3 /* ProductsViewController.swift */,
+				84D9504920231E4D00A101D3 /* CartViewController.swift */,
+				84D9504B20231E5C00A101D3 /* CurrenciesViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D9503420231CA600A101D3 /* ViewController.swift in Sources */,
+				84D9504C20231E5C00A101D3 /* CurrenciesViewController.swift in Sources */,
+				84D9504A20231E4D00A101D3 /* CartViewController.swift in Sources */,
+				84D9504820231E3D00A101D3 /* ProductsViewController.swift in Sources */,
 				84D9503A20231CA600A101D3 /* ShoppingCart.xcdatamodeld in Sources */,
 				84D9503220231CA600A101D3 /* AppDelegate.swift in Sources */,
 			);
