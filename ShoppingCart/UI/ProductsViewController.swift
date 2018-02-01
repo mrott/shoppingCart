@@ -8,12 +8,18 @@
 
 import UIKit
 
+static let ProductsViewControllerConstants {
+    
+}
+
 class ProductsViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +38,10 @@ class ProductsViewController: UIViewController {
     }
     */
 
+}
+
+extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
 }
