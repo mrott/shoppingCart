@@ -44,8 +44,19 @@ class SaleManager {
         CoreDataManager.shared.saveContext()
     }
     
-    func set(saleItem: SaleItem, quantity: Int) {
-        
+    func remove(saleItem: SaleItem) {
+        currentSale?.removeFromSaleItems(saleItem)
+        CoreDataManager.shared.saveContext()
+    }
+    
+    func set(saleItem: SaleItem, quantity: Int64) {
+        if quantity == 0 {
+            remove(saleItem: saleItem)
+        }
+        else {
+            saleItem.quantity = quantity
+            CoreDataManager.shared.saveContext()
+        }
     }
     
     fileprivate func updateSaleFinalValue() {

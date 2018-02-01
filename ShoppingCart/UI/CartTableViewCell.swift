@@ -8,9 +8,18 @@
 
 import UIKit
 
+protocol CartTableViewCellDelegate: class {
+    func cartTableViewCellPlus(saleItem: SaleItem)
+    func cartTableViewCellMinus(saleItem: SaleItem)
+    func cartTableViewCellRemove(saleItem: SaleItem)
+}
+
 class CartTableViewCell: UITableViewCell {
 
     static let identifier = "CartTableViewCell"
+    
+    var saleItem: SaleItem?
+    weak var delegate: CartTableViewCellDelegate?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
@@ -29,7 +38,10 @@ class CartTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(saleItem: SaleItem, currency: Currency?) {
+    func configure(saleItem: SaleItem, currency: Currency?, delegate: CartTableViewCellDelegate?) {
+        self.saleItem = saleItem
+        self.delegate = delegate
+        
         nameLabel.text = saleItem.product?.name
         unitTypeLabel.text = saleItem.product?.unitType
         var price = (saleItem.product?.price ?? 0) * Float(saleItem.quantity)
@@ -43,5 +55,21 @@ class CartTableViewCell: UITableViewCell {
         quantityLabel.text = "Quantity: " + String(saleItem.quantity )
     }
     
-
+    @IBAction func plusPressed(_ sender: Any) {
+        if let delegate = delegate, let saleItem = saleItem {
+            delegate.cartTableViewCellPlus(saleItem: saleItem)
+        }
+    }
+    
+    @IBAction func minusPressed(_ sender: Any) {
+        if let delegate = delegate, let saleItem = saleItem {
+            delegate.cartTableViewCellMinus(saleItem: saleItem)
+        }
+    }
+    
+    @IBAction func removePressed(_ sender: Any) {
+        if let delegate = delegate, let saleItem = saleItem {
+            delegate.cartTableViewCellRemove(saleItem: saleItem)
+        }
+    }
 }

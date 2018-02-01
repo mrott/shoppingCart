@@ -96,7 +96,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath)
         
         if let saleItem = fetchedResultsController?.object(at: indexPath), let cartCell = cell as? CartTableViewCell {
-            cartCell.configure(saleItem: saleItem, currency: currentCurrency)
+            cartCell.configure(saleItem: saleItem, currency: currentCurrency, delegate: self)
         }
         
         return cell
@@ -104,9 +104,40 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+extension CartViewController: CartTableViewCellDelegate {
+    func cartTableViewCellPlus(saleItem: SaleItem) {
+        SaleManager.shared.set(saleItem: saleItem, quantity: saleItem.quantity + 1)
+        do {
+            try fetchedResultsController?.performFetch()
+            tableView.reloadData()
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+    }
+    
+    func cartTableViewCellMinus(saleItem: SaleItem) {
+        SaleManager.shared.set(saleItem: saleItem, quantity: saleItem.quantity - 1)
+        do {
+            try fetchedResultsController?.performFetch()
+            tableView.reloadData()
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+    }
+    
+    func cartTableViewCellRemove(saleItem: SaleItem) {
+        SaleManager.shared.remove(saleItem: saleItem)
+        do {
+            try fetchedResultsController?.performFetch()
+            tableView.reloadData()
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+    }
+}
+
 extension CartViewController: CurrenciesViewControllerDelegate {
     func currenciesViewControllerCompleted(currency: Currency) {
         currentCurrency = currency
     }
 }
-
