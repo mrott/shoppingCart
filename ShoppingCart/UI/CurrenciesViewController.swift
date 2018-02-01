@@ -8,13 +8,31 @@
 
 import UIKit
 
+protocol CurrenciesViewControllerDelegate: class {
+    func currenciesViewControllerCompleted(currency: Currency)
+}
+
 class CurrenciesViewController: UIViewController {
 
+    weak var delegate: CurrenciesViewControllerDelegate?
+    var currencies: [Currency] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        weak var _self = self
         NetworkRequest.getCurrencies { (completed, currencies) in
-            print(currencies)
+            if let _self = _self {
+                _self.currencies = currencies
+            }
         }
     }
 
@@ -34,4 +52,40 @@ class CurrenciesViewController: UIViewController {
     }
     */
 
+    @IBAction func cancelPressed(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CurrenciesViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currencies.count
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyTableViewCell.identifier, for: indexPath)
+        
+        if let currencyCell = cell as? CurrencyTableViewCell {
+            currencyCell.configure(currency: currencies[indexPath.row])
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currency = currencies[indexPath.row]
+        if let delegate = delegate {
+            delegate.currenciesViewControllerCompleted(currency: currency)
+            navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
 }

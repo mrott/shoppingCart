@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -121,21 +122,91 @@
             </objects>
             <point key="canvasLocation" x="548" y="133.5832083958021"/>
         </scene>
-        <!--Currencies View Controller-->
+        <!--Currencies-->
         <scene sceneID="lxv-m9-cto">
             <objects>
                 <viewController id="7KH-Hy-35L" customClass="CurrenciesViewController" customModule="ShoppingCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YVW-dG-i78">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X41-Ey-alk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CurrencyTableViewCell" rowHeight="52" id="wBL-jg-qvn" customClass="CurrencyTableViewCell" customModule="ShoppingCart" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wBL-jg-qvn" id="Q6d-E7-4dM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LC5-Pj-it3">
+                                                    <rect key="frame" x="0.0" y="51" width="375" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="u18-18-urQ"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnA-p5-kj6">
+                                                    <rect key="frame" x="325" y="20.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.1340977126" green="0.1034278886" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTe-g7-f5A">
+                                                    <rect key="frame" x="23" y="23" width="42" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="HnA-p5-kj6" secondAttribute="trailing" constant="8" id="4sv-J2-ji5"/>
+                                                <constraint firstItem="HnA-p5-kj6" firstAttribute="centerY" secondItem="eTe-g7-f5A" secondAttribute="centerY" id="FB6-I0-jM9"/>
+                                                <constraint firstAttribute="bottom" secondItem="LC5-Pj-it3" secondAttribute="bottom" id="OUn-o7-5Lp"/>
+                                                <constraint firstItem="eTe-g7-f5A" firstAttribute="leading" secondItem="Q6d-E7-4dM" secondAttribute="leadingMargin" constant="8" id="PzS-Sv-lZu"/>
+                                                <constraint firstItem="LC5-Pj-it3" firstAttribute="leading" secondItem="Q6d-E7-4dM" secondAttribute="leading" id="QSx-8r-7l6"/>
+                                                <constraint firstAttribute="trailing" secondItem="LC5-Pj-it3" secondAttribute="trailing" id="SmR-tc-RNW"/>
+                                                <constraint firstItem="eTe-g7-f5A" firstAttribute="top" secondItem="Q6d-E7-4dM" secondAttribute="topMargin" constant="12" id="wqy-eL-1uT"/>
+                                                <constraint firstItem="LC5-Pj-it3" firstAttribute="top" secondItem="eTe-g7-f5A" secondAttribute="bottom" constant="12" id="yhO-GC-sVP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="eTe-g7-f5A" id="Ho7-Oe-BEJ"/>
+                                            <outlet property="valueLabel" destination="HnA-p5-kj6" id="wEO-Es-PgV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7KH-Hy-35L" id="0Hb-cM-p1k"/>
+                                    <outlet property="delegate" destination="7KH-Hy-35L" id="eTp-Je-L67"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X41-Ey-alk" firstAttribute="leading" secondItem="YVW-dG-i78" secondAttribute="leading" id="1Jo-TM-FgN"/>
+                            <constraint firstItem="X41-Ey-alk" firstAttribute="top" secondItem="YVW-dG-i78" secondAttribute="top" id="76R-Ft-ZS5"/>
+                            <constraint firstItem="1sX-Qf-hWp" firstAttribute="bottom" secondItem="X41-Ey-alk" secondAttribute="bottom" id="cDW-cK-rHn"/>
+                            <constraint firstItem="1sX-Qf-hWp" firstAttribute="trailing" secondItem="X41-Ey-alk" secondAttribute="trailing" id="pIp-3I-ClQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1sX-Qf-hWp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uVd-yH-Qsb"/>
+                    <navigationItem key="navigationItem" title="Currencies" id="Xl5-md-jGh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bZ3-u6-ucN">
+                            <connections>
+                                <action selector="cancelPressed:" destination="7KH-Hy-35L" id="c58-bA-cPD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="X41-Ey-alk" id="yD7-H0-qDe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNV-z6-UrH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2846" y="-694"/>
+            <point key="canvasLocation" x="2845.5999999999999" y="-694.00299850074964"/>
         </scene>
         <!--Cart-->
         <scene sceneID="rNN-Og-i3A">

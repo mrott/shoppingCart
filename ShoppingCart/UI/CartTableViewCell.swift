@@ -29,11 +29,17 @@ class CartTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(saleItem: SaleItem) {
+    func configure(saleItem: SaleItem, currency: Currency?) {
         nameLabel.text = saleItem.product?.name
         unitTypeLabel.text = saleItem.product?.unitType
-        let price = (saleItem.product?.price ?? 0) * Float(saleItem.quantity)
-        priceLabel.text = String(format: "%.2f", price) + "$"
+        var price = (saleItem.product?.price ?? 0) * Float(saleItem.quantity)
+        if let currency = currency {
+            price = price * currency.value
+            priceLabel.text = String(format: "%.2f", price) + currency.name
+        }
+        else {
+            priceLabel.text = String(format: "%.2f", price) + "USD"
+        }
         quantityLabel.text = "Quantity: " + String(saleItem.quantity )
     }
     

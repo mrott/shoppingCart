@@ -9,6 +9,6 @@
 import Foundation
 
 class Currency {
-    var name: String?
-    var value: Float?
+    var name: String = ""
+    var value: Float = 0
 }

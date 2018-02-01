@@ -24,16 +24,24 @@ extension NetworkRequest {
                             currency.value = quote.value
                             currencies.append(currency)
                         }
-                        completion(true, currencies)
+                        DispatchQueue.main.async {
+                            completion(true, currencies)
+                        }
                     }
                     else {
+                        DispatchQueue.main.async {
+                            completion(false, [])
+                        }
+                    }
+                }  catch _ as NSError {
+                    DispatchQueue.main.async {
                         completion(false, [])
                     }
-                }  catch let _ as NSError {
-                    completion(false, [])
                 }
             } else if error != nil {
-                completion(false, [])
+                DispatchQueue.main.async {
+                    completion(false, [])
+                }
             }
         }
         

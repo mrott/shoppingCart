@@ -15,9 +15,14 @@ fileprivate struct CartViewControllerConstants {
 
 class CartViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    
+    var currentCurrency: Currency? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     fileprivate var fetchedResultsController: NSFetchedResultsController<SaleItem>?
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +37,16 @@ class CartViewController: UIViewController {
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let currenciesVC = (segue.destination as? UINavigationController)?.viewControllers.first as? CurrenciesViewController {
+            currenciesVC.delegate = self
+        }
     }
-    */
-
+    
     fileprivate func setupFetchRequestController() {
         let context = CoreDataManager.shared.managedObjectContext
         let fetchRequest = NSFetchRequest<SaleItem>(entityName: SaleItem.entityName)
@@ -90,11 +95,17 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath)
         
         if let saleItem = fetchedResultsController?.object(at: indexPath), let cartCell = cell as? CartTableViewCell {
-            cartCell.configure(saleItem: saleItem)
+            cartCell.configure(saleItem: saleItem, currency: currentCurrency)
         }
         
         return cell
     }
     
+}
+
+extension CartViewController: CurrenciesViewControllerDelegate {
+    func currenciesViewControllerCompleted(currency: Currency) {
+        currentCurrency = currency
+    }
 }
 
