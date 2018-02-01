@@ -72,7 +72,8 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func finishSalePressed(_ sender: Any) {
-        
+        SaleManager.shared.closeSale()
+        navigationController?.popToRootViewController(animated: true)
     }
     
 }
