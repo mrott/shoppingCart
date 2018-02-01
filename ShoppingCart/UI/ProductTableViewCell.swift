@@ -31,7 +31,7 @@ class ProductTableViewCell: UITableViewCell {
     func configure(product: Product) {
         nameLabel.text = product.name
         unitTypeLabel.text = product.unitType
-        priceLabel.text = String(product.price) + "$"
+        priceLabel.text = String(product.price) + "USD"
     }
     
 }
