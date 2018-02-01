@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 fileprivate struct ProductsViewControllerConstants {
-    
+    static let cartSegue = "cart"
 }
 
 class ProductsViewController: UIViewController {
@@ -55,6 +55,9 @@ class ProductsViewController: UIViewController {
         }
     }
     
+    @IBAction func cartPressed(_ sender: Any) {
+        performSegue(withIdentifier: ProductsViewControllerConstants.cartSegue, sender: self)
+    }
 }
 
 extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -83,7 +86,7 @@ extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let product = fetchedResultsController?.object(at: indexPath) {
-            
+            SaleManager.shared.addProduct(product: product)
         }
     }
 }
