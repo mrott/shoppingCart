@@ -28,7 +28,7 @@ class CurrencyTableViewCell: UITableViewCell {
     
     func configure(currency: Currency) {
         nameLabel.text = currency.name
-        valueLabel.text = String(format: "%.2f", currency.value ?? 0)
+        valueLabel.text = String(format: "%.2f", currency.value)
     }
 
 }
